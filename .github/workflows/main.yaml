@@ -27,7 +27,7 @@ jobs:
 
       # Use the output from the `hello` step
       - name: Get the output time from DOCKER ACTION
-        run: echo "The time was ${{ steps.action-nested.outputs.description }}"
+        run: echo "The time was ${{ steps.action-nested.outputs.docker-test }}"
 
       - name: Get the output time from JS ACTION TOP LEVEL
-        run: echo "The time was ${{ steps.action-nested.outputs.description }}"
+        run: echo "The time was ${{ steps.action-nested.outputs.js-test }}"
