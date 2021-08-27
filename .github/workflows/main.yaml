@@ -22,4 +22,9 @@ jobs:
         id: action-nested
         uses: ./ci/action-first-level
         with:
-          who-to-greet: "mr Joe"
+          who-to-greet-docker: "mr Joe"
+          who-to-greet-js: "mr Joe aswell!"
+
+      # Use the output from the nested `hello` step
+      - name: Get the output time TOP LEVEL
+        run: echo "The time was ${{ steps.action-nested.outputs.time }}"
