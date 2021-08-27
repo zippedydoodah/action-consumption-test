@@ -1,0 +1,25 @@
+name: top Level
+
+on: push
+
+jobs:
+  action-nested:
+    name: Run nested action
+    runs-on: ubuntu-latest
+    steps:
+      # checkout this repo
+      - name: Checkout Repo
+        uses: actions/checkout@v2.3.4
+
+      # checkout the private repo containing the action to run
+      - name: Checkout GitHub Action Repo
+        uses: actions/checkout@v2.3.4
+        with:
+          repository: zippedydoodah/action-first-level
+          path: ci/action-first-level
+
+      - name: Nested action
+        id: action-nested
+        uses: ./ci/action-first-level
+        with:
+          who-to-greet: "mr Joe"
