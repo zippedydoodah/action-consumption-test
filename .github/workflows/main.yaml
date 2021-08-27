@@ -25,6 +25,9 @@ jobs:
           who-to-greet-docker: "mr Joe"
           who-to-greet-js: "mr Joe aswell!"
 
-      # Use the output from the nested `hello` step
-      - name: Get the output time TOP LEVEL
-        run: echo "The time was ${{ steps.action-nested.outputs.time }}"
+      # Use the output from the `hello` step
+      - name: Get the output time from DOCKER ACTION
+        run: echo "The time was ${{ steps.action-nested.outputs.description }}"
+
+      - name: Get the output time from JS ACTION TOP LEVEL
+        run: echo "The time was ${{ steps.action-nested.outputs.description }}"
